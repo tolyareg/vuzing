@@ -17,17 +17,15 @@ public:
     }
 
     Complex operator*(const Complex& other) {
-        double newReal = (real * other.real) - (fake * other.fake);
-        double newFake = (real * other.fake) + (fake * other.real);
-        return Complex(newReal, newFake);
+        return Complex(real * other.real - fake * other.fake, real * other.fake + fake * other.real);
     }
 
     Complex operator/(const Complex& other) {
-        double del = (other.real * other.real) + (other.fake * other.fake);
-        double newReal = ((real * other.real) + (fake * other.fake)) / del;
-        double newFake = ((fake * other.real) - (real * other.fake)) / del;
+        // double del = (other.real * other.real) + (other.fake * other.fake);
+        // double newReal = ((real * other.real) + (fake * other.fake)) / del;
+        // double newFake = ((fake * other.real) - (real * other.fake)) / del;
 
-        return Complex(newReal, newFake);
+        return Complex((real * other.real + fake * other.fake) / (other.real * other.real + other.fake * other.fake), (fake * other.real - real * other.fake) / (other.real * other.real + other.fake * other.fake));
     }
 
     void View() {
