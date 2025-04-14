@@ -19,9 +19,6 @@ int main() {
         cin >> a >> b >> c;
 
         vector<string> team = {a, b, c};
-        for (const string& name : team) {
-            dist.try_emplace(name, -1);
-        }
 
         graph[a].push_back(b);
         graph[a].push_back(c);
