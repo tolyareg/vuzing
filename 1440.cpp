@@ -70,8 +70,9 @@ int main() {
     }
 
     int total_days = practice_end - practice_start + 1;
+    int days = 128; // 2^7 options
 
-    for (int mask = 1; mask < (1 << 7); ++mask) {
+    for (int mask = 1; mask < days; ++mask) {
         set<int> practice_days;
         for (int i = 0; i < 7; ++i) {
             if (mask & (1 << i))
